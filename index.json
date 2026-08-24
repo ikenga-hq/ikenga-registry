@@ -82,6 +82,20 @@
       "visibility": "hidden"
     },
     {
+      "name": "@ikenga/pkg-engine-opencode",
+      "latest": "0.1.0",
+      "detail": "pkgs/engine-opencode.json",
+      "description": "OpenCode CLI engine adapter for Ikenga.",
+      "kind": "engine"
+    },
+    {
+      "name": "@ikenga/pkg-engine-pi",
+      "latest": "0.1.0",
+      "detail": "pkgs/engine-pi.json",
+      "description": "Pi coding agent CLI engine adapter for Ikenga.",
+      "kind": "engine"
+    },
+    {
       "name": "@ikenga/pkg-finance",
       "latest": "0.3.1",
       "detail": "pkgs/finance.json",
