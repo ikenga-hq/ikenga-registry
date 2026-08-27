@@ -89,6 +89,13 @@
       "kind": "embedded"
     },
     {
+      "name": "@ikenga/pkg-git",
+      "latest": "0.2.0",
+      "detail": "pkgs/git.json",
+      "description": "com.ikenga.git — Git mini-app pkg (Bun sidecar + MCP + UI) that tracks every Ikenga project's repo(s), reuses the user's existing git/gh auth by shelling out rather than storing credentials, and makes agent worktrees, attribution and stale-base hazards first-class.",
+      "kind": "embedded"
+    },
+    {
       "name": "@ikenga/pkg-hello",
       "latest": "0.1.0",
       "detail": "pkgs/hello.json",
