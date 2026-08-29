@@ -313,8 +313,12 @@
                               "type": "string",
                               "enum": [
                                 "iframe",
-                                "component"
+                                "component",
+                                "webview"
                               ]
+                            },
+                            "partition": {
+                              "type": "string"
                             },
                             "source": {
                               "type": "string"
