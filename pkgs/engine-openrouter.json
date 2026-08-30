@@ -1,0 +1,81 @@
+{
+  "$schemaVersion": 1,
+  "name": "@ikenga/pkg-engine-openrouter",
+  "updatedAt": "2026-08-30T22:50:23.188Z",
+  "versions": [
+    {
+      "version": "0.1.0",
+      "publishedAt": "2026-08-24T09:56:53.538Z",
+      "tarball": "https://registry.npmjs.org/@ikenga/pkg-engine-openrouter/-/pkg-engine-openrouter-0.1.0.tgz",
+      "integrity": "sha512-qkVkCpwXdVZg4+I6Rn40X+GdXNkXlP9bPtr64Z82SREMMMRId0KL2Q/y/wAhAwYHsV9E8lzLP0LxuiufnbZzaA==",
+      "size": 25727,
+      "manifest": {
+        "id": "com.ikenga.engine-openrouter",
+        "name": "OpenRouter Engine",
+        "version": "0.1.0",
+        "ikenga_api": "1",
+        "kind": "engine",
+        "author": {
+          "name": "Royalti",
+          "key": "royalti"
+        },
+        "ui": {},
+        "permissions": {
+          "net.http": [
+            "https://openrouter.ai/api/**"
+          ],
+          "fs.read": [
+            "$pkg_data/sessions/**"
+          ],
+          "fs.write": [
+            "$pkg_data/sessions/**"
+          ]
+        },
+        "settings": {
+          "schema": [
+            {
+              "key": "model",
+              "type": "string",
+              "label": "Default model",
+              "default": "anthropic/claude-3.7-sonnet",
+              "description": "OpenRouter model identifier (e.g. anthropic/claude-3.7-sonnet, deepseek/deepseek-r1, meta-llama/llama-3.3-70b-instruct)."
+            },
+            {
+              "key": "base_url",
+              "type": "string",
+              "label": "API Base URL",
+              "default": "https://openrouter.ai/api/v1"
+            }
+          ]
+        },
+        "engine": {
+          "agentId": "openrouter",
+          "display": "OpenRouter Unified LLM",
+          "capabilities": {
+            "streaming": true,
+            "toolUse": true,
+            "thinking": true,
+            "artifacts": true,
+            "fileAttachments": true,
+            "imageInput": true,
+            "slashCommands": true,
+            "modelSwitching": true,
+            "promptCaching": true,
+            "agenticTools": true,
+            "mcp": true,
+            "sessionResume": true
+          },
+          "onboarding": {
+            "requiredVaultKeys": [
+              "OPENROUTER_API_KEY"
+            ],
+            "requiredEnvVars": [],
+            "authCommand": "openrouter login",
+            "docsUrl": "https://openrouter.ai/docs"
+          }
+        }
+      },
+      "deps": []
+    }
+  ]
+}

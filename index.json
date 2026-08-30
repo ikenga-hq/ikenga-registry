@@ -1,24 +1,24 @@
 {
   "$schemaVersion": 1,
-  "updatedAt": "2026-08-17T19:56:55.872Z",
+  "updatedAt": "2026-08-30T22:50:23.188Z",
   "pkgs": [
     {
       "name": "@ikenga/mcp-browser",
-      "latest": "0.3.0",
+      "latest": "0.3.1",
       "detail": "pkgs/mcp-browser.json",
       "description": "Model Context Protocol (MCP) server that lets agents drive native child webviews in the Ikenga desktop app — open a pane on a partner portal (Spotify-for-Artists, Bandcamp, Linkfire, etc.), snapshot it, click, fill, and wait. Bypasses iframe CSP `frame-ancestors` by using the system webview.",
       "kind": "skill"
     },
     {
       "name": "@ikenga/mcp-devin",
-      "latest": "0.2.0",
+      "latest": "0.2.1",
       "detail": "pkgs/mcp-devin.json",
       "description": "Model Context Protocol (MCP) server that exposes the user's local Devin CLI to any Ikenga engine — single-turn runs, session listing/resume, and background task delegation.",
       "kind": "skill"
     },
     {
       "name": "@ikenga/mcp-iyke",
-      "latest": "0.2.2",
+      "latest": "0.2.3",
       "detail": "pkgs/mcp-iyke.json",
       "description": "Model Context Protocol (MCP) server that exposes the Ikenga desktop app's iyke control bridge — drive a running Tauri AI workspace from any MCP client (Claude, Cursor, etc.).",
       "kind": "skill"
@@ -80,6 +80,27 @@
       "description": "No-op engine adapter for Ikenga — proves the engine pluggability pattern; used as a test fixture and for shell-without-AI mode.",
       "kind": "engine",
       "visibility": "hidden"
+    },
+    {
+      "name": "@ikenga/pkg-engine-opencode",
+      "latest": "0.1.0",
+      "detail": "pkgs/engine-opencode.json",
+      "description": "OpenCode CLI engine adapter for Ikenga.",
+      "kind": "engine"
+    },
+    {
+      "name": "@ikenga/pkg-engine-openrouter",
+      "latest": "0.1.0",
+      "detail": "pkgs/engine-openrouter.json",
+      "description": "OpenRouter unified engine adapter for Ikenga (Plan 24, WP-20).",
+      "kind": "engine"
+    },
+    {
+      "name": "@ikenga/pkg-engine-pi",
+      "latest": "0.1.0",
+      "detail": "pkgs/engine-pi.json",
+      "description": "Pi coding agent CLI engine adapter for Ikenga.",
+      "kind": "engine"
     },
     {
       "name": "@ikenga/pkg-finance",
@@ -154,7 +175,7 @@
     },
     {
       "name": "@ikenga/skill-groundwork",
-      "latest": "0.6.1",
+      "latest": "0.7.6",
       "detail": "pkgs/skill-groundwork.json",
       "description": "Reusable research → design → plan → orchestrate → act skill for Claude Code.",
       "kind": "skill"

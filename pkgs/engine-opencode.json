@@ -1,0 +1,79 @@
+{
+  "$schemaVersion": 1,
+  "name": "@ikenga/pkg-engine-opencode",
+  "updatedAt": "2026-08-30T22:50:23.188Z",
+  "versions": [
+    {
+      "version": "0.1.0",
+      "publishedAt": "2026-08-24T09:51:03.651Z",
+      "tarball": "https://registry.npmjs.org/@ikenga/pkg-engine-opencode/-/pkg-engine-opencode-0.1.0.tgz",
+      "integrity": "sha512-OG4RkA928SQXdBILN50MADbsFxu7Wt5nTBubN1LC2EYkEaGbkgviKdZcQy7Hyf2fEJyvfiCld5DT59mZUyCUeQ==",
+      "size": 28030,
+      "manifest": {
+        "id": "com.ikenga.engine-opencode",
+        "name": "OpenCode Engine",
+        "version": "0.1.0",
+        "ikenga_api": "1",
+        "kind": "engine",
+        "author": {
+          "name": "Royalti",
+          "key": "royalti"
+        },
+        "ui": {},
+        "permissions": {
+          "shell.execute": [
+            "opencode"
+          ],
+          "fs.read": [
+            "$pkg_data/sessions/**"
+          ],
+          "fs.write": [
+            "$pkg_data/sessions/**"
+          ]
+        },
+        "settings": {
+          "schema": [
+            {
+              "key": "opencode_binary",
+              "type": "string",
+              "label": "Path to `opencode` CLI",
+              "default": "opencode",
+              "description": "Resolved against $PATH if not absolute."
+            },
+            {
+              "key": "model",
+              "type": "string",
+              "label": "Default model",
+              "default": "claude-3-7-sonnet"
+            }
+          ]
+        },
+        "engine": {
+          "agentId": "opencode",
+          "display": "OpenCode",
+          "capabilities": {
+            "streaming": true,
+            "toolUse": true,
+            "thinking": false,
+            "artifacts": false,
+            "fileAttachments": true,
+            "imageInput": false,
+            "slashCommands": true,
+            "modelSwitching": true,
+            "promptCaching": false,
+            "agenticTools": true,
+            "mcp": true,
+            "sessionResume": true
+          },
+          "onboarding": {
+            "requiredVaultKeys": [],
+            "requiredEnvVars": [],
+            "authCommand": "opencode /init",
+            "docsUrl": "https://opencode.ai"
+          }
+        }
+      },
+      "deps": []
+    }
+  ]
+}
