@@ -1,6 +1,6 @@
 {
   "$schemaVersion": 1,
-  "updatedAt": "2026-08-30T22:50:23.188Z",
+  "updatedAt": "2026-09-05T23:51:17.986Z",
   "pkgs": [
     {
       "name": "@ikenga/mcp-browser",
@@ -21,6 +21,13 @@
       "latest": "0.2.3",
       "detail": "pkgs/mcp-iyke.json",
       "description": "Model Context Protocol (MCP) server that exposes the Ikenga desktop app's iyke control bridge — drive a running Tauri AI workspace from any MCP client (Claude, Cursor, etc.).",
+      "kind": "skill"
+    },
+    {
+      "name": "@ikenga/mcp-meetings",
+      "latest": "0.1.0",
+      "detail": "pkgs/mcp-meetings.json",
+      "description": "Model Context Protocol (MCP) server for querying meeting transcripts, search, summaries, and recording controls.",
       "kind": "skill"
     },
     {
@@ -129,6 +136,20 @@
       "latest": "0.3.0",
       "detail": "pkgs/mail.json",
       "description": "Mail — Inbox, Triage, All, Drafts over the production mail schema. No-build iframe pkg; deterministic CSS vendoring build.",
+      "kind": "embedded"
+    },
+    {
+      "name": "@ikenga/pkg-meetings",
+      "latest": "0.2.0",
+      "detail": "pkgs/meetings.json",
+      "description": "Ikenga Meetings app: local recording controls, synchronized transcript player, and meeting intelligence.",
+      "kind": "app"
+    },
+    {
+      "name": "@ikenga/pkg-meetings-bot",
+      "latest": "0.1.0",
+      "detail": "pkgs/meetings-bot.json",
+      "description": "Ikenga meeting recorder sidecar managing local own-machine capture, whisper.cpp STT engine, and Playwright bot runners.",
       "kind": "embedded"
     },
     {
