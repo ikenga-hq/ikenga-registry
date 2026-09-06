@@ -1,0 +1,68 @@
+{
+  "$schemaVersion": 1,
+  "name": "@ikenga/pkg-spotify",
+  "updatedAt": "2026-09-06T00:05:49.469Z",
+  "versions": [
+    {
+      "version": "0.2.2",
+      "publishedAt": "2026-09-05T22:29:38.385Z",
+      "tarball": "https://registry.npmjs.org/@ikenga/pkg-spotify/-/pkg-spotify-0.2.2.tgz",
+      "integrity": "sha512-oJPylT1n/ml28o5OMyqXq8/AAZP65y4K9lwOmS4KxDqwWywCYUJ3GDmp2uDcGaALhQJWKk4OBMQE5mwH5HrweQ==",
+      "size": 12651,
+      "manifest": {
+        "id": "com.ikenga.spotify",
+        "name": "Spotify for Artists",
+        "version": "0.2.2",
+        "ikenga_api": "1",
+        "kind": "embedded",
+        "author": {
+          "name": "Royalti",
+          "key": "royalti"
+        },
+        "ui": {
+          "session": {
+            "persistence": "keep"
+          },
+          "nav": [
+            {
+              "id": "spotify.index",
+              "label": "Spotify",
+              "icon": "music",
+              "section": "apps",
+              "route": "/pkg/com.ikenga.spotify/"
+            }
+          ],
+          "routes": [
+            {
+              "path": "/",
+              "kind": "webview",
+              "source": "https://artists.spotify.com/",
+              "partition": "persist:spotify"
+            }
+          ]
+        },
+        "capabilities": {
+          "webview": {
+            "child_webviews": true,
+            "partitions": [
+              "persist:spotify"
+            ],
+            "allowed_origins": [
+              "https://*.spotify.com",
+              "https://accounts.spotify.com"
+            ],
+            "engines": [
+              "chrome"
+            ]
+          }
+        },
+        "permissions": {
+          "net": [
+            "https://*.spotify.com"
+          ]
+        }
+      },
+      "deps": []
+    }
+  ]
+}

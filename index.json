@@ -1,6 +1,6 @@
 {
   "$schemaVersion": 1,
-  "updatedAt": "2026-09-05T23:51:17.986Z",
+  "updatedAt": "2026-09-06T00:05:49.469Z",
   "pkgs": [
     {
       "name": "@ikenga/mcp-browser",
@@ -153,6 +153,13 @@
       "kind": "embedded"
     },
     {
+      "name": "@ikenga/pkg-notion",
+      "latest": "0.2.2",
+      "detail": "pkgs/notion.json",
+      "description": "Notion webview package",
+      "kind": "embedded"
+    },
+    {
       "name": "@ikenga/pkg-outbound",
       "latest": "0.3.1",
       "detail": "pkgs/outbound.json",
@@ -174,6 +181,20 @@
       "kind": "embedded"
     },
     {
+      "name": "@ikenga/pkg-sentry",
+      "latest": "0.2.2",
+      "detail": "pkgs/sentry.json",
+      "description": "Sentry webview package",
+      "kind": "embedded"
+    },
+    {
+      "name": "@ikenga/pkg-spotify",
+      "latest": "0.2.2",
+      "detail": "pkgs/spotify.json",
+      "description": "Spotify for Artists webview package",
+      "kind": "embedded"
+    },
+    {
       "name": "@ikenga/pkg-strategy",
       "latest": "0.3.0",
       "detail": "pkgs/strategy.json",
@@ -182,7 +203,7 @@
     },
     {
       "name": "@ikenga/pkg-studio",
-      "latest": "0.5.0",
+      "latest": "0.6.0",
       "detail": "pkgs/studio.json",
       "description": "com.ikenga.studio app pkg — project sidecar (storyboard/render queue with fal.ai + Excalidraw renderer adapters), FFmpeg-backed exporter, prompt-package Track-B handoff, a 40-tool MCP server, and the full M-A production-desk iframe UI.",
       "kind": "embedded"
@@ -192,6 +213,13 @@
       "latest": "0.8.3",
       "detail": "pkgs/tasks.json",
       "description": "Tasks — List, Agenda, Triage over the production tasks schema. Multi-file iframe pkg; deterministic CSS vendoring build.",
+      "kind": "embedded"
+    },
+    {
+      "name": "@ikenga/pkg-wikipedia",
+      "latest": "0.1.0",
+      "detail": "pkgs/wikipedia.json",
+      "description": "Wikipedia webview package — the native child-webview proof for Phase 1",
       "kind": "embedded"
     },
     {

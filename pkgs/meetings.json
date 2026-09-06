@@ -1,11 +1,11 @@
 {
   "$schemaVersion": 1,
   "name": "@ikenga/pkg-meetings",
-  "updatedAt": "2026-09-05T23:51:17.986Z",
+  "updatedAt": "2026-09-06T00:05:49.469Z",
   "versions": [
     {
       "version": "0.2.0",
-      "publishedAt": "2026-09-05T23:51:18.251Z",
+      "publishedAt": "2026-09-05T23:51:14.609Z",
       "tarball": "https://registry.npmjs.org/@ikenga/pkg-meetings/-/pkg-meetings-0.2.0.tgz",
       "integrity": "sha512-iNTBIIglqon1OpGYvb+LwVTtNfFfYb+jHRxE5KUoUk4AVGhxmkmsdQvziweHGPiwCXfDZvvMDXhqZspCSwAhiw==",
       "size": 1279348,
