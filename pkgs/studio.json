@@ -1,8 +1,243 @@
 {
   "$schemaVersion": 1,
   "name": "@ikenga/pkg-studio",
-  "updatedAt": "2026-09-06T00:05:49.469Z",
+  "updatedAt": "2026-09-13T18:26:07.924Z",
   "versions": [
+    {
+      "version": "0.7.0",
+      "publishedAt": "2026-09-13T17:33:40.195Z",
+      "tarball": "https://registry.npmjs.org/@ikenga/pkg-studio/-/pkg-studio-0.7.0.tgz",
+      "integrity": "sha512-DjCJ3AP0nB2N8hNkXlRAFjjBE6GiLPFXI6zBHgSV5L5JAQ0NAKnYO/bhSH/bVEOrGREZsI+xFu2kMSVvnUeSAw==",
+      "size": 25314782,
+      "manifest": {
+        "id": "com.ikenga.studio",
+        "name": "Studio",
+        "version": "0.7.0",
+        "ikenga_api": "1",
+        "kind": "embedded",
+        "author": {
+          "name": "Royalti",
+          "key": "royalti"
+        },
+        "requires": [
+          {
+            "kind": "bundle",
+            "name": "studio-archetypes",
+            "source": "npx"
+          },
+          {
+            "kind": "bundle",
+            "name": "studio-toolchain",
+            "source": "npx"
+          },
+          {
+            "kind": "skill",
+            "name": "studio-beat-detect",
+            "source": "npx"
+          },
+          {
+            "kind": "skill",
+            "name": "studio-doctor",
+            "source": "npx"
+          },
+          {
+            "kind": "skill",
+            "name": "video-script-structure",
+            "source": "npx"
+          },
+          {
+            "kind": "skill",
+            "name": "storyboard-workflow",
+            "source": "npx"
+          }
+        ],
+        "ui": {
+          "nav": [
+            {
+              "id": "studio.index",
+              "label": "Studio",
+              "icon": "clapperboard",
+              "section": "ops",
+              "route": "/pkg/com.ikenga.studio/studio"
+            }
+          ],
+          "routes": [
+            {
+              "path": "/studio",
+              "kind": "iframe",
+              "source": "dist/index.html"
+            }
+          ],
+          "csp": {
+            "default-src": [
+              "'self'"
+            ],
+            "script-src": [
+              "'self'",
+              "'unsafe-inline'",
+              "https://esm.sh",
+              "https://cdn.jsdelivr.net",
+              "https://cdn.tailwindcss.com"
+            ],
+            "style-src": [
+              "'self'",
+              "'unsafe-inline'",
+              "https://esm.sh",
+              "https://cdn.jsdelivr.net",
+              "https://cdn.tailwindcss.com"
+            ],
+            "font-src": [
+              "'self'",
+              "https://esm.sh",
+              "https://cdn.jsdelivr.net",
+              "data:"
+            ],
+            "img-src": [
+              "'self'",
+              "data:",
+              "blob:",
+              "file:"
+            ],
+            "media-src": [
+              "'self'",
+              "blob:",
+              "file:"
+            ],
+            "connect-src": [
+              "'self'",
+              "http://127.0.0.1:*",
+              "https://esm.sh",
+              "https://cdn.jsdelivr.net",
+              "https://*.supabase.co",
+              "wss://*.supabase.co"
+            ]
+          }
+        },
+        "sidecars": [
+          {
+            "name": "pa-com-ikenga-studio-project",
+            "bin": "sidecars/project/dist/sidecar.js",
+            "stdio": "json",
+            "restart_when_changed": [
+              "sidecars/project/dist/sidecar.js"
+            ],
+            "auto_restart": true
+          }
+        ],
+        "mcp": [
+          {
+            "name": "studio",
+            "command": "bun",
+            "args": [
+              "mcp/dist/index.js"
+            ],
+            "lifecycle": "long-lived",
+            "restart_when_changed": [
+              "mcp/dist/index.js"
+            ],
+            "auto_restart": true
+          }
+        ],
+        "iyke": {
+          "routes": [
+            {
+              "method": "POST",
+              "path": "/pkg/com.ikenga.studio/project/open",
+              "handler": "sidecar:pa-com-ikenga-studio-project project.open"
+            },
+            {
+              "method": "POST",
+              "path": "/pkg/com.ikenga.studio/project/close",
+              "handler": "sidecar:pa-com-ikenga-studio-project project.close"
+            },
+            {
+              "method": "GET",
+              "path": "/pkg/com.ikenga.studio/project/list",
+              "handler": "sidecar:pa-com-ikenga-studio-project project.list"
+            },
+            {
+              "method": "POST",
+              "path": "/pkg/com.ikenga.studio/render/enqueue",
+              "handler": "sidecar:pa-com-ikenga-studio-project render.enqueue"
+            }
+          ],
+          "events": [
+            "pkg://com.ikenga.studio/cells/changed",
+            "pkg://com.ikenga.studio/render/progress",
+            "pkg://com.ikenga.studio/render/done"
+          ]
+        },
+        "settings": {
+          "schema": [
+            {
+              "key": "default_engine",
+              "type": "string",
+              "label": "Default render engine",
+              "default": "auto",
+              "description": "Renderer used when a cell does not pin one. 'auto' resolves the best available adapter."
+            },
+            {
+              "key": "fal_api_key",
+              "type": "secret",
+              "label": "fal API key",
+              "env": "FAL_KEY",
+              "description": "fal.ai — the shipping AI-generation engine (Track A). In-shell the supervisor resolves this from Stronghold (key `FAL_KEY`, studio pkg scope) and injects it into the render sidecar's env as FAL_KEY; the adapter's vault shim reads it back for `studio.fal`. A launch-env FAL_KEY remains the headless fallback."
+            },
+            {
+              "key": "veo_api_key",
+              "type": "secret",
+              "label": "Veo API key",
+              "description": "Phase 3 — Google Veo AI-generation adapter. Unused in Phase 1."
+            },
+            {
+              "key": "kling_api_key",
+              "type": "secret",
+              "label": "Kling API key",
+              "description": "Phase 3 — Kling AI-generation adapter. Unused in Phase 1."
+            },
+            {
+              "key": "runway_api_key",
+              "type": "secret",
+              "label": "Runway API key",
+              "description": "Phase 3 — Runway AI-generation adapter. Unused in Phase 1."
+            }
+          ]
+        },
+        "permissions": {
+          "shell.execute": [
+            "bun",
+            "npx",
+            "node",
+            "ffmpeg",
+            "chromium",
+            "python3"
+          ],
+          "fs.read": [
+            "$pkg_data/**"
+          ],
+          "fs.write": [
+            "$pkg_data/**"
+          ],
+          "net": [
+            "http://127.0.0.1:*",
+            "https://esm.sh",
+            "https://cdn.jsdelivr.net",
+            "https://cdn.tailwindcss.com",
+            "https://*.supabase.co"
+          ],
+          "vault.keys": [
+            "studio.fal",
+            "studio.veo",
+            "studio.kling",
+            "studio.runway"
+          ],
+          "engine": [
+            "invoke"
+          ]
+        }
+      },
+      "deps": []
+    },
     {
       "version": "0.6.0",
       "publishedAt": "2026-09-05T22:32:18.637Z",

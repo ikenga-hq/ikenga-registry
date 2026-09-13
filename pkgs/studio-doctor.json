@@ -1,8 +1,35 @@
 {
   "$schemaVersion": 1,
   "name": "@ikenga/studio-doctor",
-  "updatedAt": "2026-08-17T04:59:03.786Z",
+  "updatedAt": "2026-09-13T18:26:07.924Z",
   "versions": [
+    {
+      "version": "0.2.2",
+      "publishedAt": "2026-09-13T17:30:59.969Z",
+      "tarball": "https://registry.npmjs.org/@ikenga/studio-doctor/-/studio-doctor-0.2.2.tgz",
+      "integrity": "sha512-wTyU8xHyPyWiiW2mVQ1y2xg1OfnMdLIPP2Hx5k3/wWbbESCgsRg9pvzjQgDjy4veMCFriexVCcneNqR7IZJHRw==",
+      "size": 20226,
+      "manifest": {
+        "id": "com.ikenga.studio-doctor",
+        "name": "Studio Doctor",
+        "version": "0.2.2",
+        "ikenga_api": "1",
+        "kind": "skill",
+        "author": {
+          "name": "Royalti",
+          "key": "royalti"
+        },
+        "permissions": {
+          "shell.execute": [],
+          "fs.read": [],
+          "fs.write": [],
+          "net": [],
+          "sqlite.tables": [],
+          "vault.keys": []
+        }
+      },
+      "deps": []
+    },
     {
       "version": "0.2.1",
       "publishedAt": "2026-08-17T04:58:41.469Z",

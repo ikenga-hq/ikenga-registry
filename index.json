@@ -1,6 +1,6 @@
 {
   "$schemaVersion": 1,
-  "updatedAt": "2026-09-06T00:05:49.469Z",
+  "updatedAt": "2026-09-13T18:26:07.924Z",
   "pkgs": [
     {
       "name": "@ikenga/mcp-browser",
@@ -97,7 +97,7 @@
     },
     {
       "name": "@ikenga/pkg-engine-openrouter",
-      "latest": "0.1.0",
+      "latest": "0.1.1",
       "detail": "pkgs/engine-openrouter.json",
       "description": "OpenRouter unified engine adapter for Ikenga (Plan 24, WP-20).",
       "kind": "engine"
@@ -203,7 +203,7 @@
     },
     {
       "name": "@ikenga/pkg-studio",
-      "latest": "0.6.0",
+      "latest": "0.7.0",
       "detail": "pkgs/studio.json",
       "description": "com.ikenga.studio app pkg — project sidecar (storyboard/render queue with fal.ai + Excalidraw renderer adapters), FFmpeg-backed exporter, prompt-package Track-B handoff, a 40-tool MCP server, and the full M-A production-desk iframe UI.",
       "kind": "embedded"
@@ -277,7 +277,7 @@
     },
     {
       "name": "@ikenga/studio-doctor",
-      "latest": "0.2.1",
+      "latest": "0.2.2",
       "detail": "pkgs/studio-doctor.json",
       "description": "Studio toolchain preflight — pure-shell check.sh that verifies the local render stack. Zero coupling; independently useful as a doctor/preflight skill.",
       "kind": "skill"
