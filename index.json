@@ -1,6 +1,6 @@
 {
   "$schemaVersion": 1,
-  "updatedAt": "2026-09-13T18:26:07.924Z",
+  "updatedAt": "2026-09-23T04:57:30.601Z",
   "pkgs": [
     {
       "name": "@ikenga/mcp-browser",
@@ -18,7 +18,7 @@
     },
     {
       "name": "@ikenga/mcp-iyke",
-      "latest": "0.2.3",
+      "latest": "0.3.0",
       "detail": "pkgs/mcp-iyke.json",
       "description": "Model Context Protocol (MCP) server that exposes the Ikenga desktop app's iyke control bridge — drive a running Tauri AI workspace from any MCP client (Claude, Cursor, etc.).",
       "kind": "skill"
@@ -32,7 +32,7 @@
     },
     {
       "name": "@ikenga/pkg-agent-ops",
-      "latest": "0.2.2",
+      "latest": "0.2.3",
       "detail": "pkgs/agent-ops.json",
       "description": "Agent Ops — schedule observability, run history, and failure triage over ikenga.db. Multi-file iframe pkg, no build step.",
       "kind": "embedded"
@@ -46,7 +46,7 @@
     },
     {
       "name": "@ikenga/pkg-content",
-      "latest": "0.4.0",
+      "latest": "0.4.1",
       "detail": "pkgs/content.json",
       "description": "Content — Pipeline (kanban + list), Calendar, Published over the production content schema. Multi-file iframe pkg; deterministic CSS vendoring build.",
       "kind": "embedded"
@@ -111,14 +111,14 @@
     },
     {
       "name": "@ikenga/pkg-finance",
-      "latest": "0.3.1",
+      "latest": "0.3.2",
       "detail": "pkgs/finance.json",
       "description": "Finance — Overview / Transactions / Receivables / Inter-Company / Reports over the production finance schema. Multi-file iframe pkg; deterministic CSS vendoring build.",
       "kind": "embedded"
     },
     {
       "name": "@ikenga/pkg-git",
-      "latest": "0.2.0",
+      "latest": "0.2.1",
       "detail": "pkgs/git.json",
       "description": "com.ikenga.git — Git mini-app pkg (Bun sidecar + MCP + UI) that tracks every Ikenga project's repo(s), reuses the user's existing git/gh auth by shelling out rather than storing credentials, and makes agent worktrees, attribution and stale-base hazards first-class.",
       "kind": "embedded"
@@ -133,14 +133,14 @@
     },
     {
       "name": "@ikenga/pkg-mail",
-      "latest": "0.3.0",
+      "latest": "0.3.1",
       "detail": "pkgs/mail.json",
       "description": "Mail — Inbox, Triage, All, Drafts over the production mail schema. No-build iframe pkg; deterministic CSS vendoring build.",
       "kind": "embedded"
     },
     {
       "name": "@ikenga/pkg-meetings",
-      "latest": "0.2.0",
+      "latest": "0.2.1",
       "detail": "pkgs/meetings.json",
       "description": "Ikenga Meetings app: local recording controls, synchronized transcript player, and meeting intelligence.",
       "kind": "app"
@@ -154,70 +154,70 @@
     },
     {
       "name": "@ikenga/pkg-notion",
-      "latest": "0.2.2",
+      "latest": "0.2.3",
       "detail": "pkgs/notion.json",
       "description": "Notion webview package",
       "kind": "embedded"
     },
     {
       "name": "@ikenga/pkg-outbound",
-      "latest": "0.3.1",
+      "latest": "0.3.2",
       "detail": "pkgs/outbound.json",
       "description": "Outbound — Email, Newsletter, Sequences, Social channels over the production outbound schema. No-build iframe pkg; deterministic CSS vendoring build.",
       "kind": "embedded"
     },
     {
       "name": "@ikenga/pkg-research",
-      "latest": "0.3.0",
+      "latest": "0.3.1",
       "detail": "pkgs/research.json",
       "description": "Research — Reports (list+detail), Sources (monitored register), Personas (ICP grid) over the research_notes + research_sources schema. Multi-file iframe pkg; deterministic CSS vendoring build.",
       "kind": "embedded"
     },
     {
       "name": "@ikenga/pkg-sales",
-      "latest": "0.4.0",
+      "latest": "0.4.1",
       "detail": "pkgs/sales.json",
       "description": "Sales — Pipeline, Forecast, Won over the production sales schema. Multi-file iframe pkg; deterministic CSS vendoring build.",
       "kind": "embedded"
     },
     {
       "name": "@ikenga/pkg-sentry",
-      "latest": "0.2.2",
+      "latest": "0.2.3",
       "detail": "pkgs/sentry.json",
       "description": "Sentry webview package",
       "kind": "embedded"
     },
     {
       "name": "@ikenga/pkg-spotify",
-      "latest": "0.2.2",
+      "latest": "0.2.3",
       "detail": "pkgs/spotify.json",
       "description": "Spotify for Artists webview package",
       "kind": "embedded"
     },
     {
       "name": "@ikenga/pkg-strategy",
-      "latest": "0.3.0",
+      "latest": "0.3.1",
       "detail": "pkgs/strategy.json",
       "description": "Strategy — OKR board (board + list), Cycles, Reviews over the production strategy schema. Multi-file iframe pkg; deterministic CSS vendoring build.",
       "kind": "embedded"
     },
     {
       "name": "@ikenga/pkg-studio",
-      "latest": "0.7.0",
+      "latest": "0.7.1",
       "detail": "pkgs/studio.json",
       "description": "com.ikenga.studio app pkg — project sidecar (storyboard/render queue with fal.ai + Excalidraw renderer adapters), FFmpeg-backed exporter, prompt-package Track-B handoff, a 40-tool MCP server, and the full M-A production-desk iframe UI.",
       "kind": "embedded"
     },
     {
       "name": "@ikenga/pkg-tasks",
-      "latest": "0.8.3",
+      "latest": "0.8.4",
       "detail": "pkgs/tasks.json",
       "description": "Tasks — List, Agenda, Triage over the production tasks schema. Multi-file iframe pkg; deterministic CSS vendoring build.",
       "kind": "embedded"
     },
     {
       "name": "@ikenga/pkg-wikipedia",
-      "latest": "0.1.0",
+      "latest": "0.1.1",
       "detail": "pkgs/wikipedia.json",
       "description": "Wikipedia webview package — the native child-webview proof for Phase 1",
       "kind": "embedded"

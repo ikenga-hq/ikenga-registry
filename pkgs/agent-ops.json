@@ -1,8 +1,105 @@
 {
   "$schemaVersion": 1,
   "name": "@ikenga/pkg-agent-ops",
-  "updatedAt": "2026-07-10T00:44:18.187Z",
+  "updatedAt": "2026-09-23T04:57:30.601Z",
   "versions": [
+    {
+      "version": "0.2.3",
+      "publishedAt": "2026-09-23T04:58:40.062Z",
+      "tarball": "https://registry.npmjs.org/@ikenga/pkg-agent-ops/-/pkg-agent-ops-0.2.3.tgz",
+      "integrity": "sha512-qFlUWnf2rQMZwUTNZcgyi09jGB6aE+TCssuXf+xOf/OmlYC3WzENcnO8Uw2p+QFs+tT4KGIn+ErXo3DuN/RupA==",
+      "size": 253807,
+      "manifest": {
+        "id": "com.ikenga.agent-ops",
+        "name": "Agent Ops",
+        "version": "0.2.3",
+        "ikenga_api": "1",
+        "kind": "embedded",
+        "author": {
+          "name": "Royalti",
+          "key": "royalti"
+        },
+        "ui": {
+          "views": [
+            {
+              "id": "agentops.index",
+              "title": "Agent Ops",
+              "icon": "activity",
+              "route": "/",
+              "pin_on_install": true
+            }
+          ],
+          "routes": [
+            {
+              "path": "/",
+              "kind": "iframe",
+              "source": "dist/index.html"
+            },
+            {
+              "path": "/schedule",
+              "kind": "iframe",
+              "source": "dist/index.html"
+            },
+            {
+              "path": "/runs",
+              "kind": "iframe",
+              "source": "dist/index.html"
+            },
+            {
+              "path": "/failures",
+              "kind": "iframe",
+              "source": "dist/index.html"
+            },
+            {
+              "path": "/live",
+              "kind": "iframe",
+              "source": "dist/index.html"
+            }
+          ],
+          "csp": {
+            "script-src": [
+              "'self'",
+              "'unsafe-inline'",
+              "https://esm.sh"
+            ],
+            "style-src": [
+              "'self'",
+              "'unsafe-inline'",
+              "https://esm.sh"
+            ],
+            "font-src": [
+              "'self'",
+              "https://esm.sh",
+              "data:"
+            ],
+            "connect-src": [
+              "'self'",
+              "https://esm.sh"
+            ]
+          }
+        },
+        "capabilities": {
+          "sqlite": {
+            "db": "ikenga.local"
+          },
+          "agentOps": {}
+        },
+        "permissions": {
+          "shell.execute": [],
+          "fs.read": [],
+          "fs.write": [],
+          "net": [
+            "https://esm.sh"
+          ],
+          "sqlite.tables": [
+            "cron_job_runs",
+            "agent_runs"
+          ],
+          "vault.keys": []
+        }
+      },
+      "deps": []
+    },
     {
       "version": "0.2.2",
       "publishedAt": "2026-07-10T00:43:56.957Z",

@@ -1,8 +1,71 @@
 {
   "$schemaVersion": 1,
   "name": "@ikenga/pkg-wikipedia",
-  "updatedAt": "2026-09-06T00:05:49.469Z",
+  "updatedAt": "2026-09-23T04:57:30.601Z",
   "versions": [
+    {
+      "version": "0.1.1",
+      "publishedAt": "2026-09-23T04:58:11.893Z",
+      "tarball": "https://registry.npmjs.org/@ikenga/pkg-wikipedia/-/pkg-wikipedia-0.1.1.tgz",
+      "integrity": "sha512-WEukRK2gGUQBIpl4SI9q8pvNtpq2jjv64IXM02Em18AwrzSp39R9B/4Q/ykXV5VQlU6W8CX4SIA0T1fp/YDrEg==",
+      "size": 14395,
+      "manifest": {
+        "id": "com.ikenga.wikipedia",
+        "name": "Wikipedia",
+        "version": "0.1.1",
+        "ikenga_api": "4",
+        "kind": "embedded",
+        "author": {
+          "name": "Royalti",
+          "key": "royalti"
+        },
+        "ui": {
+          "session": {
+            "persistence": "clear-on-exit"
+          },
+          "views": [
+            {
+              "id": "wikipedia.index",
+              "title": "Wikipedia",
+              "icon": "book-open",
+              "route": "/",
+              "pin_on_install": true
+            }
+          ],
+          "routes": [
+            {
+              "path": "/",
+              "kind": "webview",
+              "source": "https://en.wikipedia.org/",
+              "partition": "persist:wikipedia"
+            }
+          ]
+        },
+        "capabilities": {
+          "webview": {
+            "child_webviews": true,
+            "partitions": [
+              "persist:wikipedia"
+            ],
+            "allowed_origins": [
+              "https://en.wikipedia.org",
+              "https://*.wikipedia.org",
+              "https://*.wikimedia.org"
+            ],
+            "engines": [
+              "webkit"
+            ]
+          }
+        },
+        "permissions": {
+          "net": [
+            "https://*.wikipedia.org",
+            "https://*.wikimedia.org"
+          ]
+        }
+      },
+      "deps": []
+    },
     {
       "version": "0.1.0",
       "publishedAt": "2026-09-05T22:29:37.701Z",

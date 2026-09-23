@@ -1,8 +1,150 @@
 {
   "$schemaVersion": 1,
   "name": "@ikenga/pkg-meetings",
-  "updatedAt": "2026-09-06T00:05:49.469Z",
+  "updatedAt": "2026-09-23T04:57:30.601Z",
   "versions": [
+    {
+      "version": "0.2.1",
+      "publishedAt": "2026-09-23T04:57:23.781Z",
+      "tarball": "https://registry.npmjs.org/@ikenga/pkg-meetings/-/pkg-meetings-0.2.1.tgz",
+      "integrity": "sha512-p6iEi2gp0WWs2WAVfUfZtzhqQ5dkaBn/dDtiyphUqDlGTejmSGOb5h1cIjcGVNgZvaSeQ0p+M2xeZhBaUg4LEw==",
+      "size": 1279332,
+      "manifest": {
+        "id": "com.ikenga.meetings",
+        "name": "Meetings",
+        "version": "0.2.1",
+        "ikenga_api": "3",
+        "kind": "app",
+        "author": {
+          "name": "Royalti, Inc.",
+          "key": "royalti"
+        },
+        "ui": {
+          "views": [
+            {
+              "id": "meetings.index",
+              "title": "Meetings",
+              "icon": "video",
+              "route": "/meetings",
+              "pin_on_install": true
+            }
+          ],
+          "routes": [
+            {
+              "path": "/meetings",
+              "kind": "iframe",
+              "source": "dist/index.html"
+            }
+          ],
+          "csp": {
+            "default-src": [
+              "'self'"
+            ],
+            "script-src": [
+              "'self'",
+              "'unsafe-inline'"
+            ],
+            "style-src": [
+              "'self'",
+              "'unsafe-inline'"
+            ],
+            "font-src": [
+              "'self'",
+              "data:"
+            ],
+            "img-src": [
+              "'self'",
+              "data:",
+              "blob:",
+              "file:"
+            ],
+            "media-src": [
+              "'self'",
+              "blob:",
+              "file:"
+            ],
+            "connect-src": [
+              "'self'",
+              "http://127.0.0.1:*"
+            ]
+          }
+        },
+        "sidecars": [
+          {
+            "name": "pa-com-ikenga-meetings-bot",
+            "bin": "sidecars/bot/dist/sidecar.js",
+            "stdio": "json",
+            "restart_when_changed": [
+              "sidecars/bot/dist/sidecar.js"
+            ],
+            "auto_restart": false
+          }
+        ],
+        "mcp": [
+          {
+            "name": "meetings",
+            "command": "node",
+            "args": [
+              "mcp/dist/index.js"
+            ],
+            "lifecycle": "long-lived",
+            "restart_when_changed": [
+              "mcp/dist/index.js"
+            ],
+            "auto_restart": true
+          }
+        ],
+        "capabilities": {
+          "sqlite": {
+            "db": "ikenga.local"
+          }
+        },
+        "settings": {
+          "schema": [
+            {
+              "key": "openai_api_key",
+              "type": "secret",
+              "env": "OPENAI_API_KEY",
+              "label": "OpenAI API key (Whisper)",
+              "description": "WP-19: used only when the OpenAI Whisper backend is picked for a meeting. Resolved from Stronghold under this pkg's own scope and injected into the meetings MCP server's env as OPENAI_API_KEY, mirroring com.ikenga.studio's FAL_KEY (F-9). KNOWN GAP as of 2026-09-04: no host.* verb bridges pkg_settings_set or secrets_set_scoped to a pkg iframe, and the shell's generic per-pkg Settings tab writes type:\"secret\" values into the plaintext pkg_settings table via pkg_settings_set rather than into Stronghold via secrets_set_scoped — so setting this field there does not yet reach this env var. Until that's fixed shell-side, this app's own first-run/settings picker stores the key itself via the stt_set_openai_key MCP tool (see mcp/src/secrets-store.ts); this env var is checked first and wins the moment either gap closes."
+            }
+          ]
+        },
+        "permissions": {
+          "sqlite.tables": [
+            "meetings",
+            "meeting_speakers",
+            "meeting_transcripts",
+            "meeting_action_items",
+            "meeting_summaries",
+            "tasks"
+          ],
+          "fs.read": [
+            "$pkg_data/**",
+            "~/.ikenga/media/**",
+            "~/.ikenga/models/**",
+            "~/.ikenga/bin/**"
+          ],
+          "fs.write": [
+            "$pkg_data/**",
+            "~/.ikenga/media/**"
+          ],
+          "shell.execute": [
+            "node",
+            "ffmpeg",
+            "ffprobe",
+            "whisper-cli"
+          ],
+          "net": [
+            "https://api.openai.com/"
+          ],
+          "notify": [
+            "send"
+          ]
+        }
+      },
+      "deps": []
+    },
     {
       "version": "0.2.0",
       "publishedAt": "2026-09-05T23:51:14.609Z",

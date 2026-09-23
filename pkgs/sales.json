@@ -1,8 +1,96 @@
 {
   "$schemaVersion": 1,
   "name": "@ikenga/pkg-sales",
-  "updatedAt": "2026-07-10T00:44:18.187Z",
+  "updatedAt": "2026-09-23T04:57:30.601Z",
   "versions": [
+    {
+      "version": "0.4.1",
+      "publishedAt": "2026-09-23T05:00:41.826Z",
+      "tarball": "https://registry.npmjs.org/@ikenga/pkg-sales/-/pkg-sales-0.4.1.tgz",
+      "integrity": "sha512-LkIphIs00jQC6DDJN6iLhzC+CGbuEU8APCfFstHbIwK4ELr8klfUifRAcTZecef7OtWdSBZLXIuanlpCMm9B6Q==",
+      "size": 341833,
+      "manifest": {
+        "id": "com.ikenga.sales",
+        "name": "Sales",
+        "version": "0.4.1",
+        "ikenga_api": "1",
+        "kind": "embedded",
+        "author": {
+          "name": "Royalti",
+          "key": "royalti"
+        },
+        "ui": {
+          "views": [
+            {
+              "id": "sales.index",
+              "title": "Sales",
+              "icon": "trending-up",
+              "route": "/",
+              "pin_on_install": true
+            }
+          ],
+          "routes": [
+            {
+              "path": "/",
+              "kind": "iframe",
+              "source": "dist/index.html"
+            }
+          ],
+          "csp": {
+            "script-src": [
+              "'self'",
+              "'unsafe-inline'",
+              "https://esm.sh"
+            ],
+            "style-src": [
+              "'self'",
+              "'unsafe-inline'",
+              "https://esm.sh"
+            ],
+            "font-src": [
+              "'self'",
+              "https://esm.sh",
+              "data:"
+            ],
+            "connect-src": [
+              "'self'",
+              "https://esm.sh"
+            ]
+          }
+        },
+        "capabilities": {
+          "sqlite": {
+            "db": "ikenga.local"
+          }
+        },
+        "permissions": {
+          "shell.execute": [],
+          "fs.read": [],
+          "fs.write": [],
+          "net": [
+            "https://esm.sh"
+          ],
+          "sqlite.tables": [
+            "sales_deals",
+            "sales_activities",
+            "sales_forecasts",
+            "sales_lead_scores",
+            "contacts"
+          ],
+          "vault.keys": [],
+          "engine": [
+            "invoke"
+          ]
+        },
+        "requires": [
+          {
+            "kind": "skill",
+            "name": "skill-sales"
+          }
+        ]
+      },
+      "deps": []
+    },
     {
       "version": "0.4.0",
       "publishedAt": "2026-07-10T00:43:57.739Z",

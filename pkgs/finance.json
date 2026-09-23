@@ -1,8 +1,97 @@
 {
   "$schemaVersion": 1,
   "name": "@ikenga/pkg-finance",
-  "updatedAt": "2026-07-10T00:44:18.187Z",
+  "updatedAt": "2026-09-23T04:57:30.601Z",
   "versions": [
+    {
+      "version": "0.3.2",
+      "publishedAt": "2026-09-23T04:58:04.887Z",
+      "tarball": "https://registry.npmjs.org/@ikenga/pkg-finance/-/pkg-finance-0.3.2.tgz",
+      "integrity": "sha512-qs1HoS+FHYzW8y0zKa+V+70eUYN/pOlqepR57Y/wELOIgsw31wG5EFvL7r8LH2h4UBc1+/EDHRp0VkcvQ8heLg==",
+      "size": 410308,
+      "manifest": {
+        "id": "com.ikenga.finance",
+        "name": "Finance",
+        "version": "0.3.2",
+        "ikenga_api": "1",
+        "kind": "embedded",
+        "author": {
+          "name": "Royalti",
+          "key": "royalti"
+        },
+        "ui": {
+          "views": [
+            {
+              "id": "finance.index",
+              "title": "Finance",
+              "icon": "bar-chart-2",
+              "route": "/",
+              "pin_on_install": true
+            }
+          ],
+          "routes": [
+            {
+              "path": "/",
+              "kind": "iframe",
+              "source": "dist/index.html"
+            }
+          ],
+          "csp": {
+            "script-src": [
+              "'self'",
+              "'unsafe-inline'",
+              "https://esm.sh"
+            ],
+            "style-src": [
+              "'self'",
+              "'unsafe-inline'",
+              "https://esm.sh"
+            ],
+            "font-src": [
+              "'self'",
+              "https://esm.sh",
+              "data:"
+            ],
+            "connect-src": [
+              "'self'",
+              "https://esm.sh"
+            ]
+          }
+        },
+        "capabilities": {
+          "sqlite": {
+            "db": "ikenga.local"
+          }
+        },
+        "permissions": {
+          "shell.execute": [],
+          "fs.read": [],
+          "fs.write": [],
+          "net": [
+            "https://esm.sh"
+          ],
+          "sqlite.tables": [
+            "transaction_ledger",
+            "receivables",
+            "inter_company_entries",
+            "bank_accounts",
+            "latest_account_balances",
+            "exchange_rates",
+            "cfo_processing_runs",
+            "finance_alerts",
+            "paystack_splits"
+          ],
+          "vault.keys": []
+        },
+        "requires": [
+          {
+            "kind": "skill",
+            "name": "skill-finance"
+          }
+        ]
+      },
+      "deps": []
+    },
     {
       "version": "0.3.1",
       "publishedAt": "2026-07-10T00:43:57.812Z",

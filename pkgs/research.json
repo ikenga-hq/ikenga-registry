@@ -1,8 +1,94 @@
 {
   "$schemaVersion": 1,
   "name": "@ikenga/pkg-research",
-  "updatedAt": "2026-07-10T00:44:18.187Z",
+  "updatedAt": "2026-09-23T04:57:30.601Z",
   "versions": [
+    {
+      "version": "0.3.1",
+      "publishedAt": "2026-09-23T04:59:04.766Z",
+      "tarball": "https://registry.npmjs.org/@ikenga/pkg-research/-/pkg-research-0.3.1.tgz",
+      "integrity": "sha512-cWhxVfZ7tzmPpLt9Yg9Fuf2qbv1K3clWPnhx7mcVCWmB0LpG4dzREog5DDFsyw5tJGwL3c+X8ed1mG+H0P8C1w==",
+      "size": 335142,
+      "manifest": {
+        "id": "com.ikenga.research",
+        "name": "Research",
+        "version": "0.3.1",
+        "ikenga_api": "1",
+        "kind": "embedded",
+        "author": {
+          "name": "Royalti",
+          "key": "royalti"
+        },
+        "ui": {
+          "views": [
+            {
+              "id": "research.index",
+              "title": "Research",
+              "icon": "search",
+              "route": "/",
+              "pin_on_install": true
+            }
+          ],
+          "routes": [
+            {
+              "path": "/",
+              "kind": "iframe",
+              "source": "dist/index.html"
+            }
+          ],
+          "csp": {
+            "script-src": [
+              "'self'",
+              "'unsafe-inline'",
+              "https://esm.sh"
+            ],
+            "style-src": [
+              "'self'",
+              "'unsafe-inline'",
+              "https://esm.sh"
+            ],
+            "font-src": [
+              "'self'",
+              "https://esm.sh",
+              "data:"
+            ],
+            "connect-src": [
+              "'self'",
+              "https://esm.sh"
+            ]
+          }
+        },
+        "capabilities": {
+          "sqlite": {
+            "db": "ikenga.local"
+          }
+        },
+        "permissions": {
+          "shell.execute": [],
+          "fs.read": [],
+          "fs.write": [],
+          "net": [
+            "https://esm.sh"
+          ],
+          "sqlite.tables": [
+            "research_notes",
+            "research_sources",
+            "sales_deals"
+          ],
+          "vault.keys": [],
+          "engine": [
+            "invoke"
+          ]
+        },
+        "requires": [
+          {
+            "kind": "skill",
+            "name": "skill-research"
+          }
+        ]
+      },
+      "deps": []
+    },
     {
       "version": "0.3.0",
       "publishedAt": "2026-07-10T00:43:57.055Z",

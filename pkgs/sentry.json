@@ -1,8 +1,69 @@
 {
   "$schemaVersion": 1,
   "name": "@ikenga/pkg-sentry",
-  "updatedAt": "2026-09-06T00:05:49.469Z",
+  "updatedAt": "2026-09-23T04:57:30.601Z",
   "versions": [
+    {
+      "version": "0.2.3",
+      "publishedAt": "2026-09-23T04:57:30.036Z",
+      "tarball": "https://registry.npmjs.org/@ikenga/pkg-sentry/-/pkg-sentry-0.2.3.tgz",
+      "integrity": "sha512-biqRTd4mxs6a84oKc1gge22N79yoz98SiCUcWUbWcNycCKejvHetCiFQ2kMEEoDXt7nldTtRveA5iNjqblOP2A==",
+      "size": 12668,
+      "manifest": {
+        "id": "com.ikenga.sentry",
+        "name": "Sentry",
+        "version": "0.2.3",
+        "ikenga_api": "1",
+        "kind": "embedded",
+        "author": {
+          "name": "Royalti",
+          "key": "royalti"
+        },
+        "ui": {
+          "session": {
+            "persistence": "keep"
+          },
+          "views": [
+            {
+              "id": "sentry.index",
+              "title": "Sentry",
+              "icon": "activity",
+              "route": "/",
+              "pin_on_install": true
+            }
+          ],
+          "routes": [
+            {
+              "path": "/",
+              "kind": "webview",
+              "source": "https://sentry.io/",
+              "partition": "persist:sentry"
+            }
+          ]
+        },
+        "capabilities": {
+          "webview": {
+            "child_webviews": true,
+            "partitions": [
+              "persist:sentry"
+            ],
+            "allowed_origins": [
+              "https://sentry.io",
+              "https://*.sentry.io"
+            ],
+            "engines": [
+              "chrome"
+            ]
+          }
+        },
+        "permissions": {
+          "net": [
+            "https://*.sentry.io"
+          ]
+        }
+      },
+      "deps": []
+    },
     {
       "version": "0.2.2",
       "publishedAt": "2026-09-05T22:29:40.500Z",

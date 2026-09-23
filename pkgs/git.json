@@ -1,8 +1,160 @@
 {
   "$schemaVersion": 1,
   "name": "@ikenga/pkg-git",
-  "updatedAt": "2026-08-27T10:51:43.000Z",
+  "updatedAt": "2026-09-23T04:57:30.601Z",
   "versions": [
+    {
+      "version": "0.2.1",
+      "publishedAt": "2026-09-23T04:59:20.013Z",
+      "tarball": "https://registry.npmjs.org/@ikenga/pkg-git/-/pkg-git-0.2.1.tgz",
+      "integrity": "sha512-FpsK25XsBpBPXxhAuMpnVIaeB9bKR7UpFMxzLaEpxWjE1oPg8YBinei69OFxiiccN4tfTeWCHubYPzt3g3eEnQ==",
+      "size": 2337306,
+      "manifest": {
+        "id": "com.ikenga.git",
+        "name": "Git",
+        "version": "0.2.1",
+        "ikenga_api": "1",
+        "kind": "embedded",
+        "author": {
+          "name": "Royalti",
+          "key": "royalti"
+        },
+        "ui": {
+          "views": [
+            {
+              "id": "git.changes",
+              "title": "Changes",
+              "icon": "git-branch",
+              "route": "/",
+              "pin_on_install": true
+            },
+            {
+              "id": "git.history",
+              "title": "History",
+              "icon": "history",
+              "route": "/history",
+              "pin_on_install": false
+            },
+            {
+              "id": "git.branches",
+              "title": "Branches",
+              "icon": "git-fork",
+              "route": "/branches",
+              "pin_on_install": false
+            },
+            {
+              "id": "git.worktrees",
+              "title": "Worktrees",
+              "icon": "layout-grid",
+              "route": "/worktrees",
+              "pin_on_install": false
+            },
+            {
+              "id": "git.prs",
+              "title": "PRs",
+              "icon": "git-pull-request",
+              "route": "/prs",
+              "pin_on_install": false
+            }
+          ],
+          "routes": [
+            {
+              "path": "/",
+              "kind": "iframe",
+              "source": "dist/index.html"
+            },
+            {
+              "path": "/history",
+              "kind": "iframe",
+              "source": "dist/index.html"
+            },
+            {
+              "path": "/branches",
+              "kind": "iframe",
+              "source": "dist/index.html"
+            },
+            {
+              "path": "/worktrees",
+              "kind": "iframe",
+              "source": "dist/index.html"
+            },
+            {
+              "path": "/prs",
+              "kind": "iframe",
+              "source": "dist/index.html"
+            }
+          ],
+          "csp": {
+            "default-src": [
+              "'self'"
+            ],
+            "script-src": [
+              "'self'",
+              "'unsafe-inline'"
+            ],
+            "style-src": [
+              "'self'",
+              "'unsafe-inline'"
+            ],
+            "font-src": [
+              "'self'",
+              "data:"
+            ],
+            "img-src": [
+              "'self'",
+              "data:"
+            ],
+            "connect-src": [
+              "'self'"
+            ]
+          }
+        },
+        "sidecars": [
+          {
+            "name": "pa-com-ikenga-git-repo",
+            "bin": "sidecar/dist/sidecar.js",
+            "stdio": "json",
+            "restart_when_changed": [
+              "sidecar/dist/sidecar.js"
+            ],
+            "auto_restart": true
+          }
+        ],
+        "mcp": [
+          {
+            "name": "git",
+            "command": "node",
+            "args": [
+              "mcp/dist/index.js"
+            ],
+            "lifecycle": "long-lived",
+            "restart_when_changed": [
+              "mcp/dist/index.js"
+            ],
+            "auto_restart": true
+          }
+        ],
+        "permissions": {
+          "shell.execute": [
+            "node",
+            "bun",
+            "git",
+            "gh"
+          ],
+          "fs.read": [
+            "$home/**"
+          ],
+          "fs.write": [
+            "$home/**"
+          ],
+          "net": [],
+          "sqlite.tables": [],
+          "vault.keys": [],
+          "engine": []
+        }
+      },
+      "deps": []
+    },
     {
       "version": "0.2.0",
       "publishedAt": "2026-08-27T10:51:39.000Z",
@@ -85,12 +237,28 @@
             }
           ],
           "csp": {
-            "default-src": ["'self'"],
-            "script-src": ["'self'", "'unsafe-inline'"],
-            "style-src": ["'self'", "'unsafe-inline'"],
-            "font-src": ["'self'", "data:"],
-            "img-src": ["'self'", "data:"],
-            "connect-src": ["'self'"]
+            "default-src": [
+              "'self'"
+            ],
+            "script-src": [
+              "'self'",
+              "'unsafe-inline'"
+            ],
+            "style-src": [
+              "'self'",
+              "'unsafe-inline'"
+            ],
+            "font-src": [
+              "'self'",
+              "data:"
+            ],
+            "img-src": [
+              "'self'",
+              "data:"
+            ],
+            "connect-src": [
+              "'self'"
+            ]
           }
         },
         "sidecars": [
@@ -98,7 +266,9 @@
             "name": "pa-com-ikenga-git-repo",
             "bin": "sidecar/dist/sidecar.js",
             "stdio": "json",
-            "restart_when_changed": ["sidecar/dist/sidecar.js"],
+            "restart_when_changed": [
+              "sidecar/dist/sidecar.js"
+            ],
             "auto_restart": true
           }
         ],
@@ -106,16 +276,29 @@
           {
             "name": "git",
             "command": "node",
-            "args": ["mcp/dist/index.js"],
+            "args": [
+              "mcp/dist/index.js"
+            ],
             "lifecycle": "long-lived",
-            "restart_when_changed": ["mcp/dist/index.js"],
+            "restart_when_changed": [
+              "mcp/dist/index.js"
+            ],
             "auto_restart": true
           }
         ],
         "permissions": {
-          "shell.execute": ["node", "bun", "git", "gh"],
-          "fs.read": ["$home/**"],
-          "fs.write": ["$home/**"],
+          "shell.execute": [
+            "node",
+            "bun",
+            "git",
+            "gh"
+          ],
+          "fs.read": [
+            "$home/**"
+          ],
+          "fs.write": [
+            "$home/**"
+          ],
           "net": [],
           "sqlite.tables": [],
           "vault.keys": [],
