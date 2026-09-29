@@ -1,6 +1,6 @@
 {
   "$schemaVersion": 1,
-  "updatedAt": "2026-09-23T04:57:30.601Z",
+  "updatedAt": "2026-09-29T02:20:06.786Z",
   "pkgs": [
     {
       "name": "@ikenga/mcp-browser",
@@ -97,7 +97,7 @@
     },
     {
       "name": "@ikenga/pkg-engine-openrouter",
-      "latest": "0.1.1",
+      "latest": "0.2.0",
       "detail": "pkgs/engine-openrouter.json",
       "description": "OpenRouter unified engine adapter for Ikenga (Plan 24, WP-20).",
       "kind": "engine"
