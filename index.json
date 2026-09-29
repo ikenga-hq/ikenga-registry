@@ -1,6 +1,6 @@
 {
   "$schemaVersion": 1,
-  "updatedAt": "2026-09-29T02:20:06.786Z",
+  "updatedAt": "2026-09-29T02:26:14.158Z",
   "pkgs": [
     {
       "name": "@ikenga/mcp-browser",
@@ -203,7 +203,7 @@
     },
     {
       "name": "@ikenga/pkg-studio",
-      "latest": "0.7.1",
+      "latest": "0.8.0",
       "detail": "pkgs/studio.json",
       "description": "com.ikenga.studio app pkg — project sidecar (storyboard/render queue with fal.ai + Excalidraw renderer adapters), FFmpeg-backed exporter, prompt-package Track-B handoff, a 40-tool MCP server, and the full M-A production-desk iframe UI.",
       "kind": "embedded"
