@@ -1,8 +1,92 @@
 {
   "$schemaVersion": 1,
   "name": "@ikenga/pkg-engine-openrouter",
-  "updatedAt": "2026-09-29T02:20:06.786Z",
+  "updatedAt": "2026-10-03T04:46:45.606Z",
   "versions": [
+    {
+      "version": "0.2.1",
+      "publishedAt": "2026-10-03T04:47:22.184Z",
+      "tarball": "https://registry.npmjs.org/@ikenga/pkg-engine-openrouter/-/pkg-engine-openrouter-0.2.1.tgz",
+      "integrity": "sha512-iv26774bsWvuxu8H9vozxHK+L5Iri80ZPCQYRQR2xOgxWPClJgunruXTEfAqN5r3xMaMmqaHYmB8NfPsGTdnhg==",
+      "size": 81137,
+      "manifest": {
+        "id": "com.ikenga.engine-openrouter",
+        "name": "OpenRouter Engine",
+        "version": "0.2.1",
+        "ikenga_api": "1",
+        "kind": "engine",
+        "author": {
+          "name": "Royalti",
+          "key": "royalti"
+        },
+        "ui": {},
+        "permissions": {
+          "net": [
+            "https://openrouter.ai/api/**"
+          ],
+          "fs.read": [
+            "$pkg_data/sessions/**"
+          ],
+          "fs.write": [
+            "$pkg_data/sessions/**"
+          ],
+          "vault.keys": [
+            "OPENROUTER_API_KEY"
+          ]
+        },
+        "settings": {
+          "schema": [
+            {
+              "key": "openrouter_api_key",
+              "type": "secret",
+              "label": "OpenRouter API key",
+              "env": "OPENROUTER_API_KEY",
+              "description": "Stored in the vault; injected into the adapter process as OPENROUTER_API_KEY (settings-secret env mechanism). Get one at https://openrouter.ai/keys."
+            },
+            {
+              "key": "model",
+              "type": "string",
+              "label": "Default model",
+              "default": "openrouter/auto",
+              "description": "OpenRouter model identifier, free text — any model on openrouter.ai works (e.g. openrouter/auto, anthropic/claude-3.7-sonnet, deepseek/deepseek-r1, meta-llama/llama-3.3-70b-instruct)."
+            },
+            {
+              "key": "base_url",
+              "type": "string",
+              "label": "API Base URL",
+              "default": "https://openrouter.ai/api/v1"
+            }
+          ]
+        },
+        "engine": {
+          "agentId": "openrouter",
+          "display": "OpenRouter Unified LLM",
+          "capabilities": {
+            "streaming": true,
+            "toolUse": true,
+            "thinking": true,
+            "artifacts": false,
+            "fileAttachments": false,
+            "imageInput": false,
+            "slashCommands": false,
+            "modelSwitching": true,
+            "promptCaching": false,
+            "agenticTools": false,
+            "mcp": false,
+            "sessionResume": true
+          },
+          "onboarding": {
+            "requiredVaultKeys": [
+              "OPENROUTER_API_KEY"
+            ],
+            "requiredEnvVars": [],
+            "authCommand": "openrouter login",
+            "docsUrl": "https://openrouter.ai/docs"
+          }
+        }
+      },
+      "deps": []
+    },
     {
       "version": "0.2.0",
       "publishedAt": "2026-09-29T02:22:35.974Z",

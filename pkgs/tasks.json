@@ -1,8 +1,88 @@
 {
   "$schemaVersion": 1,
   "name": "@ikenga/pkg-tasks",
-  "updatedAt": "2026-09-23T04:57:30.601Z",
+  "updatedAt": "2026-10-03T04:46:45.606Z",
   "versions": [
+    {
+      "version": "0.9.0",
+      "publishedAt": "2026-10-03T04:47:51.819Z",
+      "tarball": "https://registry.npmjs.org/@ikenga/pkg-tasks/-/pkg-tasks-0.9.0.tgz",
+      "integrity": "sha512-m+mAlOECjg3465MWIxQrocuZO9QKQYNVRRmytsKc267rCxZhVm1Jd+yVB1yccKA0zrZKKa2qeeedp4X80IWSSw==",
+      "size": 455534,
+      "manifest": {
+        "id": "com.ikenga.tasks",
+        "name": "Tasks",
+        "version": "0.9.0",
+        "ikenga_api": "1",
+        "kind": "embedded",
+        "author": {
+          "name": "Royalti",
+          "key": "royalti"
+        },
+        "ui": {
+          "views": [
+            {
+              "id": "tasks.index",
+              "title": "Tasks",
+              "icon": "check-square",
+              "route": "/",
+              "pin_on_install": true
+            }
+          ],
+          "routes": [
+            {
+              "path": "/",
+              "kind": "iframe",
+              "source": "dist/index.html"
+            }
+          ],
+          "csp": {
+            "script-src": [
+              "'self'",
+              "'unsafe-inline'",
+              "https://esm.sh"
+            ],
+            "style-src": [
+              "'self'",
+              "'unsafe-inline'",
+              "https://esm.sh"
+            ],
+            "font-src": [
+              "'self'",
+              "https://esm.sh",
+              "data:"
+            ],
+            "connect-src": [
+              "'self'",
+              "https://esm.sh"
+            ]
+          }
+        },
+        "capabilities": {
+          "sqlite": {
+            "db": "ikenga.local"
+          }
+        },
+        "permissions": {
+          "shell.execute": [],
+          "fs.read": [],
+          "fs.write": [],
+          "net": [
+            "https://esm.sh"
+          ],
+          "sqlite.tables": [
+            "tasks",
+            "task_events",
+            "task_signals"
+          ],
+          "vault.keys": [],
+          "engine": [
+            "invoke"
+          ]
+        }
+      },
+      "deps": []
+    },
     {
       "version": "0.8.4",
       "publishedAt": "2026-09-23T04:58:42.032Z",

@@ -1,8 +1,68 @@
 {
   "$schemaVersion": 1,
   "name": "@ikenga/pkg-engine-cursor-agent",
-  "updatedAt": "2026-05-27T17:33:16.529Z",
+  "updatedAt": "2026-10-03T04:46:45.606Z",
   "versions": [
+    {
+      "version": "0.1.1",
+      "publishedAt": "2026-10-03T04:48:42.838Z",
+      "tarball": "https://registry.npmjs.org/@ikenga/pkg-engine-cursor-agent/-/pkg-engine-cursor-agent-0.1.1.tgz",
+      "integrity": "sha512-Vmt1226kydYfx/3oLeBBaly4TjHJcbqEw4Bw3Kqm6UcvTGD/lhbFq1Xe3d8KlrrGVnkUMjkTdMz+QVYir9Vp7A==",
+      "size": 29829,
+      "manifest": {
+        "id": "com.ikenga.engine-cursor-agent",
+        "name": "Cursor Agent",
+        "version": "0.1.1",
+        "ikenga_api": "1",
+        "kind": "engine",
+        "author": {
+          "name": "Royalti",
+          "key": "royalti"
+        },
+        "ui": {},
+        "permissions": {
+          "shell.execute": [
+            "cursor-agent"
+          ]
+        },
+        "settings": {
+          "schema": [
+            {
+              "key": "cursor_agent_binary",
+              "type": "string",
+              "label": "Path to `cursor-agent` CLI",
+              "default": "cursor-agent",
+              "description": "Resolved against $PATH if not absolute. The runtime is not implemented yet, so setting this has no effect today."
+            }
+          ]
+        },
+        "engine": {
+          "agentId": "cursor-agent",
+          "display": "Cursor Agent",
+          "capabilities": {
+            "streaming": false,
+            "toolUse": false,
+            "thinking": false,
+            "artifacts": false,
+            "fileAttachments": false,
+            "imageInput": false,
+            "slashCommands": false,
+            "modelSwitching": false,
+            "promptCaching": false,
+            "agenticTools": false,
+            "mcp": false,
+            "sessionResume": false
+          },
+          "onboarding": {
+            "requiredVaultKeys": [],
+            "requiredEnvVars": [],
+            "authCommand": null,
+            "docsUrl": "https://cursor.com/docs"
+          }
+        }
+      },
+      "deps": []
+    },
     {
       "version": "0.1.0",
       "publishedAt": "2026-05-22T09:02:10.463Z",
