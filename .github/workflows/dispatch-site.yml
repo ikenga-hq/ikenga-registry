@@ -1,0 +1,126 @@
+name: Notify ikenga.dev
+
+# Tells ikenga-hq/ikenga-site to rebuild whenever the registry changes, so the
+# storefront and catalogs on ikenga.dev refresh on the 1-3 day release cadence
+# (site/docs/Enterprise overhaul, WP-20, G-06).
+#
+# This repo has no update workflow of its own. ikenga-pkgs rewrites index.json
+# and pkgs/*.json by pushing here with REGISTRY_REPO_PAT: from its release.yml
+# after a Changesets publish, or from the manual registry-update.yml backfill.
+# Reacting to the push covers both paths. (Pushes made with a PAT trigger
+# workflows; only GITHUB_TOKEN pushes do not.)
+#
+# Order matters. GitHub Pages serves registry.ikenga.dev from this repo's main
+# branch, and the site build fetches https://registry.ikenga.dev/index.json. A
+# dispatch sent at push time can start that build before Pages has published
+# the new index, so the site would rebuild on the old data. The first job step
+# waits until the live index matches the pushed one, then the dispatch step
+# sends `repository_dispatch` (event_type `release`) to ikenga-hq/ikenga-site.
+#
+# Founder setup, one time (the token is never echoed, and GitHub masks it in
+# logs). It is the same token the shell release workflow uses:
+#   1. Create a fine-grained personal access token. Resource owner: ikenga-hq.
+#      Repository access: only ikenga-hq/ikenga-site. Repository permissions:
+#      Contents = Read and write (that is what
+#      POST /repos/{owner}/{repo}/dispatches requires). Nothing else. If the
+#      org requires approval for fine-grained tokens, approve it.
+#   2. Save it as the Actions secret SITE_DISPATCH_TOKEN on BOTH
+#      ikenga-hq/ikenga-registry (this repo) and ikenga-hq/ikenga.
+#   3. Put its expiry in the calendar. After it lapses this workflow only
+#      warns, and the site's nightly rebuild is the backstop (a rebuild up to a
+#      day late, not none).
+#
+# Never fails because of the notification: a missing or rejected token, or a
+# Pages publish that takes too long, surfaces as a warning annotation.
+#
+# Pull requests that touch this file run the whole thing as a dry run: the wait
+# step really polls the live index (read-only), and the dispatch step prints
+# what it would send but sends nothing.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - index.json
+      - primitives.json
+      - pkgs/**
+  pull_request:
+    paths:
+      - .github/workflows/dispatch-site.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Two quick publishes: only the newest one matters, because the site rebuild
+# fetches the latest registry either way.
+concurrency:
+  group: dispatch-site
+  cancel-in-progress: true
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+
+      # Poll until the live index is byte-identical to the one in this commit.
+      # The cache-busting query string bypasses the Pages edge cache, which
+      # otherwise keeps serving the previous index for up to ten minutes.
+      # Skipped on manual runs: the person running it chose the moment.
+      - name: Wait for GitHub Pages to publish this index
+        if: github.event_name != 'workflow_dispatch'
+        env:
+          LIVE_URL: https://registry.ikenga.dev/index.json
+          ATTEMPTS: ${{ github.event_name == 'pull_request' && '3' || '24' }}
+          INTERVAL_SECONDS: '20'
+        shell: bash
+        run: |
+          want=$(sha256sum index.json | cut -d' ' -f1)
+          for attempt in $(seq 1 "$ATTEMPTS"); do
+            got=$(curl -fsS --max-time 30 "${LIVE_URL}?cb=${GITHUB_RUN_ID}-${attempt}" 2>/dev/null | sha256sum | cut -d' ' -f1 || true)
+            if [ "$got" = "$want" ]; then
+              echo "Live index matches this commit (sha256 ${want:0:12}...) after ${attempt} check(s)."
+              exit 0
+            fi
+            echo "Check ${attempt}/${ATTEMPTS}: live index is not this commit's index yet (live ${got:0:12}..., want ${want:0:12}...)."
+            if [ "$attempt" -lt "$ATTEMPTS" ]; then sleep "$INTERVAL_SECONDS"; fi
+          done
+          echo "::warning title=Pages publish not confirmed::The live registry index still differs from this commit after ${ATTEMPTS} checks. Dispatching anyway; the site's nightly rebuild will correct it if the build raced Pages."
+
+      - name: Dispatch release event to ikenga-site
+        env:
+          # The token is passed through the environment only, never on a
+          # command line.
+          GH_TOKEN: ${{ secrets.SITE_DISPATCH_TOKEN }}
+          SOURCE_REPO: ${{ github.repository }}
+          SOURCE_SHA: ${{ github.sha }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          DRY_RUN: ${{ github.event_name == 'pull_request' && 'true' || 'false' }}
+        shell: bash
+        run: |
+          if [ "$DRY_RUN" = "true" ]; then
+            echo "Dry run (pull request): would POST repos/ikenga-hq/ikenga-site/dispatches with"
+            echo "  event_type=release"
+            echo "  client_payload: source=${SOURCE_REPO} reason=registry-update sha=${SOURCE_SHA} run_url=${RUN_URL}"
+            if [ -n "${GH_TOKEN:-}" ]; then echo "SITE_DISPATCH_TOKEN is configured."; else echo "SITE_DISPATCH_TOKEN is not configured (expected until the founder step is done; runs from forks never receive it)."; fi
+            exit 0
+          fi
+
+          if [ -z "${GH_TOKEN:-}" ]; then
+            echo "::warning title=ikenga.dev not notified::SITE_DISPATCH_TOKEN is not set on this repo, so ikenga-site was not told the registry changed. The nightly rebuild will pick it up. Setup steps are in the header of .github/workflows/dispatch-site.yml."
+            exit 0
+          fi
+
+          if gh api --method POST repos/ikenga-hq/ikenga-site/dispatches \
+            -f event_type=release \
+            -f "client_payload[source]=${SOURCE_REPO}" \
+            -f "client_payload[reason]=registry-update" \
+            -f "client_payload[sha]=${SOURCE_SHA}" \
+            -f "client_payload[run_url]=${RUN_URL}" \
+            --silent; then
+            echo "Dispatched event_type=release to ikenga-hq/ikenga-site (registry ${SOURCE_SHA:0:7})"
+          else
+            echo "::warning title=ikenga.dev dispatch failed::GitHub rejected the repository_dispatch to ikenga-hq/ikenga-site. Check that SITE_DISPATCH_TOKEN is current and has Contents: write on that repo. The nightly rebuild will pick the change up."
+          fi
