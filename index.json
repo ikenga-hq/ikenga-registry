@@ -1,6 +1,6 @@
 {
   "$schemaVersion": 1,
-  "updatedAt": "2026-10-03T04:46:45.606Z",
+  "updatedAt": "2026-10-15T19:29:23.238Z",
   "pkgs": [
     {
       "name": "@ikenga/mcp-browser",
@@ -154,6 +154,14 @@
       "ngwaKind": "app"
     },
     {
+      "name": "@ikenga/pkg-mattermost",
+      "latest": "0.3.0",
+      "detail": "pkgs/mattermost.json",
+      "description": "Mattermost bridge sidecar for Ikenga remote agents (B5: threads mapped onto Chi runs, plan-then-approve, scheduled posts, mode ceiling and audit log)",
+      "kind": "embedded",
+      "ngwaKind": "sidecar"
+    },
+    {
       "name": "@ikenga/pkg-meetings",
       "latest": "0.2.1",
       "detail": "pkgs/meetings.json",
@@ -246,7 +254,7 @@
     },
     {
       "name": "@ikenga/skill-groundwork",
-      "latest": "0.7.6",
+      "latest": "0.8.2",
       "detail": "pkgs/skill-groundwork.json",
       "description": "Reusable research → design → plan → orchestrate → act skill for Claude Code.",
       "kind": "skill",
