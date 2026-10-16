@@ -1,6 +1,6 @@
 {
   "$schemaVersion": 1,
-  "updatedAt": "2026-10-16T09:09:17.434Z",
+  "updatedAt": "2026-10-16T09:28:50.413Z",
   "pkgs": [
     {
       "name": "@ikenga/mcp-browser",
@@ -155,7 +155,7 @@
     },
     {
       "name": "@ikenga/pkg-mattermost",
-      "latest": "0.3.3",
+      "latest": "0.3.4",
       "detail": "pkgs/mattermost.json",
       "description": "Mattermost bridge sidecar for Ikenga remote agents (B5: threads mapped onto Chi runs, plan-then-approve, scheduled posts, mode ceiling and audit log)",
       "kind": "embedded",
