@@ -1,6 +1,6 @@
 {
   "$schemaVersion": 1,
-  "updatedAt": "2026-10-16T09:28:50.413Z",
+  "updatedAt": "2026-10-18T09:52:26.341Z",
   "pkgs": [
     {
       "name": "@ikenga/mcp-browser",
@@ -155,7 +155,7 @@
     },
     {
       "name": "@ikenga/pkg-mattermost",
-      "latest": "0.3.4",
+      "latest": "0.4.0",
       "detail": "pkgs/mattermost.json",
       "description": "Mattermost bridge sidecar for Ikenga remote agents (B5: threads mapped onto Chi runs, plan-then-approve, scheduled posts, mode ceiling and audit log)",
       "kind": "embedded",
@@ -230,7 +230,7 @@
     },
     {
       "name": "@ikenga/pkg-studio",
-      "latest": "0.8.0",
+      "latest": "0.9.0",
       "detail": "pkgs/studio.json",
       "description": "com.ikenga.studio app pkg — project sidecar (storyboard/render queue with fal.ai + Excalidraw renderer adapters), FFmpeg-backed exporter, prompt-package Track-B handoff, a 40-tool MCP server, and the full M-A production-desk iframe UI.",
       "kind": "embedded",
@@ -254,7 +254,7 @@
     },
     {
       "name": "@ikenga/skill-groundwork",
-      "latest": "0.8.2",
+      "latest": "0.8.3",
       "detail": "pkgs/skill-groundwork.json",
       "description": "Reusable research → design → plan → orchestrate → act skill for Claude Code.",
       "kind": "skill",

@@ -1,8 +1,44 @@
 {
   "$schemaVersion": 1,
   "name": "@ikenga/pkg-mattermost",
-  "updatedAt": "2026-10-16T09:28:50.413Z",
+  "updatedAt": "2026-10-18T09:52:26.341Z",
   "versions": [
+    {
+      "version": "0.4.0",
+      "publishedAt": "2026-10-18T09:54:56.041Z",
+      "tarball": "https://registry.npmjs.org/@ikenga/pkg-mattermost/-/pkg-mattermost-0.4.0.tgz",
+      "integrity": "sha512-f8TSa1clK0Wq1SJdmtgxQdaNwLYDuksMMurzlxcocqM4p/vUGQQ/aSg3bnsauJJ7pEMCWwb75Lu60vBh2wgu3g==",
+      "size": 1199064,
+      "manifest": {
+        "id": "com.ikenga.mattermost",
+        "name": "Mattermost Bridge",
+        "version": "0.4.0",
+        "ikenga_api": "3",
+        "kind": "embedded",
+        "author": {
+          "name": "Royalti, Inc.",
+          "key": "royalti"
+        },
+        "sidecars": [
+          {
+            "name": "pa-com-ikenga-mattermost-bridge",
+            "bin": "dist/bridge.js",
+            "stdio": "json",
+            "auto_restart": true
+          }
+        ],
+        "permissions": {
+          "net": [
+            "*"
+          ],
+          "vault.keys": [
+            "MATTERMOST_URL",
+            "MATTERMOST_TOKEN"
+          ]
+        }
+      },
+      "deps": []
+    },
     {
       "version": "0.3.4",
       "publishedAt": "2026-10-16T09:29:45.113Z",
